@@ -1,7 +1,9 @@
 {
   "name": "twitterbotfrontend",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-aws": "^0.5.0"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",
