@@ -1,0 +1,22 @@
+// -------------------------------------------------
+//
+// Typo
+// 
+// -------------------------------------------------
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+
+
+body{
+	font-family: 'Inconsolata', helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: white;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+	&:visited, &:active{
+		color: white;
+	}
+}

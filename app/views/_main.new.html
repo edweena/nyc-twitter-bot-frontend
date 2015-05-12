@@ -1,0 +1,7 @@
+<form name="newTweet">
+	<label>Enter tweet text</label>
+	<textarea ng-model="response.text" required ng-maxlength="140"></textarea>
+	<button class="submit" ng-click="submit()">Save</button>
+	<a ui-sref="home"><button class="submit cancel">Cancel</button></a>
+	<div>{{140 - response.text.length}} remaining</div>
+</form>

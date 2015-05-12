@@ -1,0 +1,57 @@
+@mixin fast() {
+  @include transform(translate3d(0,0,0));
+}
+
+@mixin uppercase(){
+	text-transform: uppercase;
+	letter-spacing: 0em;
+}
+
+
+// ------------------------------------------------
+// Flex Box
+//
+
+@mixin flex($direction: ""){
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	@if $direction != ""{
+		@if $direction == "row"{
+			@include flex-direction(row);
+		}
+		@if $direction == "column"{
+			@include flex-direction(column);
+		}
+	}
+}
+
+
+// -------------------------------------------------
+//
+// Media Queries
+// 
+// -------------------------------------------------
+
+
+$breakpoints: (
+  "extra-small" 300px,
+  "small" 350px,
+  "kinda" 568px,
+  "medium" 700px,
+  "large" 1040px,
+  "extra-large" 1180px,
+  "extra-extra-large" 1200px,
+  "widescreen" 1400px,
+  "huge" 1600px
+);
+
+@mixin mq($size, $type: "min-width") { 
+  @each $breakpoint in $breakpoints {
+    @if ($size == nth($breakpoint, 1)) {
+      @media ($type: nth($breakpoint, 2)) {
+        @content;
+      }
+    }
+  }
+}

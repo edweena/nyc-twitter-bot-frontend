@@ -1,0 +1,30 @@
+<div class="main-container">
+	<div class="title">RBMA TWITTER BOT COMMAND STATION</div>
+	<a ui-sref="home.new"><div class="new-response">
+		+New Bot Response
+	</div></a>
+
+	<div ui-view class="tweet-nest"></div>
+
+	<table>
+		<tr>
+			<th>Index</th>
+			<th>Text</th>
+			<th>Created</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+
+		<tr ng-if="tweets.length == 0">
+			<td><em>No Twitter responses set.</em></td>
+		</tr>
+
+		<tr ng-repeat="tweet in tweets | orderBy:'-createdAt'">
+			<td>{{$index + 1}}</td>
+			<td>{{tweet.text}}</td>
+			<td>{{tweet.createdAt | date : 'MMM dd, yyyy / hh:mma'}}</td>
+			<td><a ui-sref="home.edit({id: '{{tweet._id}}'})"><i class="fa fa-edit"></i></a></td>
+			<td ng-click="destroy(tweet._id)"><i class="fa fa-trash"></i></td>
+		</tr>
+	</table>
+</div>
