@@ -4,26 +4,40 @@
 	margin-left: 5%;
 	height: 100%;
 	overflow: hidden;
-	overflow-y: auto;
 
 
 	.title{
 		margin: 40px 20px 0 20px;
+		max-width: 200px;
 		position: fixed;
 		@include fast();
+		@include mq("large"){
+			max-width: 500px;
+		}
 	}
 	.new-response{
 		position: fixed;
 		top: 40px;
-		right: 40px;
-		width: 150px;
+		right: 82px;
+		width: 100px;
 		height: 40px;
 		border: 1px solid white;
 		text-align: center;
 		line-height: 40px;
 		vertical-align: middle;
+		background:black;
 		@include user-select(none);
 		@include fast();
+		font-size: 0.5em;
+		z-index: 99;
+		@include mq("large"){
+			width: 150px;
+			font-size: 1em;
+		}
+		&:hover{
+			background: white;
+			color: black;
+		}
 	}
 
 	.tweet-nest{
@@ -43,6 +57,7 @@
 		height: auto;
 		position: relative;
 		display: block;
+		z-index: 9;
 		label{
 			display: block;
 		}
@@ -66,7 +81,6 @@
 			height: 60px;
 			outline: none;
 			border: 0;
-			display: block;
 			resize: none;
 			font-family: 'Inconsolata';
 			background: black;
@@ -78,7 +92,7 @@
 		}
 
 		button.submit{
-			position: absolute;
+			position: relative;
 			top: 0;
 			right: 20px;
 			background: black;
@@ -90,26 +104,42 @@
 			height: 27.5px;
 			border: 1px solid white;
 			margin-top: 16px;
+			display: inline-block;
+			@include mq("large"){
+				position: absolute;
+			}
 			&:hover{
 				background: white;
 				color: black;
 			}
 			&.cancel{
 				top: 40px;
+				@include mq("large"){
+					position: absolute;
+				}
 			}
 
 		}
+	}
+
+	.table-container{
+		position: relative;
+		overflow: hidden;
+		height: 80%;
+		overflow-y: auto;
+		padding-top: 150px;
 	}
 	
 
 	table{
 		position: relative;
-		margin-top: 150px;
 		width: 100%;
 		text-align: left;
 		margin-left: 20px;
 		margin-right: 20px;
 		margin-bottom: 100px;
+		height: auto;
+		overflow-y: auto;
 		th{
 			text-decoration: underline;
 		}

@@ -6,25 +6,28 @@
 
 	<div ui-view class="tweet-nest"></div>
 
-	<table>
-		<tr>
-			<th>Index</th>
-			<th>Text</th>
-			<th>Created</th>
-			<th>Edit</th>
-			<th>Delete</th>
-		</tr>
+	<div class="table-container">
+		<div class="table-overlay"></div>
+		<table>
+			<tr>
+				<th>Index</th>
+				<th>Text</th>
+				<th>Created</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
 
-		<tr ng-if="tweets.length == 0">
-			<td><em>No Twitter responses set.</em></td>
-		</tr>
+			<tr ng-if="tweets.length == 0">
+				<td><em>No Twitter responses set.</em></td>
+			</tr>
 
-		<tr ng-repeat="tweet in tweets | orderBy:'-createdAt'">
-			<td>{{$index + 1}}</td>
-			<td>{{tweet.text}}</td>
-			<td>{{tweet.createdAt | date : 'MMM dd, yyyy / hh:mma'}}</td>
-			<td><a ui-sref="home.edit({id: '{{tweet._id}}'})"><i class="fa fa-edit"></i></a></td>
-			<td ng-click="destroy(tweet._id)"><i class="fa fa-trash"></i></td>
-		</tr>
-	</table>
+			<tr ng-repeat="tweet in tweets | orderBy:'-createdAt'">
+				<td>{{$index + 1}}</td>
+				<td>{{tweet.text}}</td>
+				<td>{{tweet.createdAt | date : 'MMM dd, yyyy / hh:mma'}}</td>
+				<td><a ui-sref="home.edit({id: '{{tweet._id}}'})"><i class="fa fa-edit"></i></a></td>
+				<td ng-click="destroy(tweet._id)"><i class="fa fa-trash"></i></td>
+			</tr>
+		</table>
+	</div>
 </div>

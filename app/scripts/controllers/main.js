@@ -32,6 +32,7 @@ angular.module('twitterBotFrontendApp').controller('MainCtrl', [
 		// New tweet response
 		//
 		$scope.submit = function(){
+			$scope.response.createdAt = Date.now();
 			contentFarm.create($scope.response).then(function(response){
 				$scope.tweets.push(response);
 
