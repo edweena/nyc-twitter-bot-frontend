@@ -175,6 +175,21 @@ module.exports = function (grunt) {
       }
     },
 
+    aws: grunt.file.readJSON('env.json'),
+
+    s3: {
+      options:{
+        accessKeyId: '<%= aws.accessKeyId %>',
+        secretAccessKey: '<%= aws.secretAccessKey %>',
+        bucket: '<%= aws.bucket %>'
+      },
+
+      build:{
+        cwd: 'dist/',
+        src: '**'
+      }
+    },
+
     // Automatically inject Bower components into the app
     wiredep: {
       app: {

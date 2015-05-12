@@ -11,7 +11,7 @@ angular.module('twitterBotFrontendApp').factory('contentFarm', function ($http, 
 
     var content = {
      
-      url: 'http://localhost:5000/api/responses',
+      url: 'https://rbma-twitter-bot.herokuapp.com/api/responses',
 
       // ------------------------------------------------
       // Index
